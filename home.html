@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HOME</title>
+	<meta charset="utf-8">
+</head>
+<style type="text/css">
+	*{margin: 0;padding: 0;/*background: rgba(0,0,0,0.1);*/color: #BFBFBF;}
+	html,body{height: 100%;}
+	a{text-decoration: none;}
+	li{list-style: none;}
+	.top{border-top: 1px solid #5E5E5D; }
+	.bottom{border-bottom:1px solid #5E5E5D;}
+	#bg{height: 100%;top: 0;left: 0;width: 100%;position: fixed;}
+	#bg ul{top: 0;left: 0;height: 100%;width: 100%;position: absolute;/*transition: 2s ease-in-out 0.3s;*/}
+	#bg li{height: 150%;}
+	#bg li:nth-child(1){background: url(images/lpdl_fond0def0_1500.jpg) center no-repeat ;background-size: cover;}
+	#bg li:nth-child(2){background: url(images/lpdl_fond0def1_1500.jpg) center no-repeat ;background-size: cover;}
+	#bg li:nth-child(3){background: url(images/lpdl_fond0def2_1500.jpg) center no-repeat ;background-size: cover;}
+	#bg li:nth-child(4){background: url(images/lpdl_fond0def3_1500.jpg) center no-repeat ;background-size: cover;}
+	#bg li:nth-child(5){background: url(images/lpdl_fond0def4_1500.jpg) center no-repeat ;background-size: cover;}
+	#bg li:nth-child(6){background: url(images/lpdl_fond0def5_1500.jpg) center no-repeat ;background-size: cover;}
+	
+	#content{position: absolute;width: 100%;height: 100%;}
+
+	#header{width: 100%;height: 100%;position: relative;}
+	#header .container{position:absolute;top:50%;height: 200px;width: 100%;text-align: center;}
+	#header .center{position: relative;top: -50%;height: 100%;width:auto;text-transform: uppercase;letter-spacing: -1px;	font-family: '微软雅黑'}
+	#header .center h1{display:inline-block;font-size: 50px;text-transform: uppercase;height: 80px;line-height: 80px;vertical-align: top;font-weight: 500;}
+	#header .center h2{font-size: 30px;display: inline-block;height: 80px;line-height: 80px;font-weight: 500;margin-left: 20px;}
+	#header .center ul li{margin: 0 10px;display: inline-block;border-bottom:1px solid #5E5E5D;height: 50px;line-height: 50px;position: relative; }
+	#header .center ul li span{position: absolute;bottom: -1px;left: 0;border-bottom: 2px solid #eee;width: 0%;transition: 0.3s;}
+	
+
+	#news{background: rgba(0,0,0,0.8);margin-top: 30%;padding-bottom: 200px;}
+	#news .center{width: 600px;margin: 0 auto;}
+	#news .center h1{height: 100px;line-height: 100px;color: #ccc}
+
+
+	#news .center ul {}
+	#news .center ul li{padding-bottom: 22px;height: 125px;}
+	#news .center ul li .left{width: 290px;float: left;}
+	#news .center ul li .left h2{font-size: 16px;font-weight: 400;margin-top: 20px;text-transform: uppercase;color: #ccc;}
+	#news .center ul li .left p{color: #666;font-size: 14px;}
+	#news .center ul li .time{padding-top: 40px;border:1px solid #5E5E5D;border-top: none;border-bottom: none;box-sizing: border-box;height: 100%;text-align: center;}
+	#news .center ul li .time{width: 105px;float: left;}
+	#news .center ul li .img{width: 205px;float: left;}
+	#news .center ul li img{width: 180px;margin:20px 0 0 25px;}
+
+
+	#biographie{margin-top: 30%;background: rgba(0,0,0,0.8);padding-bottom: 200px;}
+	#biographie .center{width: 650px;margin:0 auto;overflow:hidden;}
+	#biographie .center h1{height: 100px;line-height: 100px;color: #ccc}
+	#biographie .center .left{width: 400px;float: left;}
+	#biographie .center .left p{margin-bottom: 20px;color: #666;}
+	#biographie .center .right{width: 220px;float: right;margin-left:30px; }
+	#biographie .center .right p{border-top: 1px solid #5E5E5D;margin-bottom: 50px;text-transform: uppercase;padding-top: 25px;font-size: 20px;}
+
+	#filmographie{margin-top: 30%;background: rgba(0,0,0,0.8);padding-bottom: 200px;}
+	#filmographie .center{width: 600px;margin:0 auto;}
+	#filmographie .center h1{height: 100px;line-height: 100px;color: #ccc}
+	#filmographie .center li{padding: 20px 0;}
+	#filmographie .title{text-transform: uppercase;font-size: 18px;}
+	#filmographie .title span{float: right;}
+	#filmographie .dis {overflow:hidden;position: relative;margin-top: 20px;}
+	#filmographie .photo{height: 350px;float: left;margin-right: 20px;}
+	#filmographie .photo img{height: 100%;}
+	#filmographie .right{width: 300px;float: right;margin-top: 20px;}
+	#filmographie .right h2{border-top: 1px solid #5E5E5D;height: 30px;width: 350px;padding-top: 15px;margin-top: 15px;font-size: 18px;font-weight: 500;}
+	#filmographie .right p{font-size: 14px;color: #666;}
+	#filmographie a{position: absolute;bottom: 20px;right: 30px;color: #333}
+
+	#presse{background: rgba(0,0,0,0.8);margin-top: 30%;text-transform: uppercase;padding-bottom: 200px;}
+	#presse .center{width: 600px;margin: 0 auto;}
+	#presse .center h1{height: 100px;line-height: 100px;color: #ccc}
+	#presse .center p{height: 70px;line-height: 70px;font-size: 18px;transition: 0.3s}
+	#presse .center p:hover{background: rgb(255,255,255,0.1);}
+	#presse .center p span{float: right;font-size: 14px;margin-right: 20px;}
+
+	#projets {background: rgba(0,0,0,0.8);margin-top: 30%;text-transform: uppercase;padding-bottom: 200px;}
+	#projets .center{width: 600px;margin: 0 auto;}
+	#projets .center h1{height: 100px;line-height: 100px;color: #ccc}
+	#projets .center li{height: 70px;line-height: 70px;}
+	#projets .center li h2{height: 70px;line-height: 70px;font-size: 18px;font-weight: 400}
+	#projets .center li h2 span{float: right;}
+
+	#contact {background: rgba(0,0,0,0.8);margin-top: 30%;text-transform: uppercase;padding-bottom: 200px;}
+	#contact .center{width: 600px;margin: 0 auto;}
+	#contact .center h1{height: 100px;line-height: 100px;color: #ccc}
+	#contact .center h2{height: 80px;line-height: 80px;color: #666;font-size: 16px;font-weight: 400;transition: 0.3s;}
+	#contact .center h2:hover{color: #ddd;}
+	#contact .center input{background: rgba(0,0,0,0);border: none;display: block;height: 50px;border-top: 1px solid #5E5E5D;width: 100%;transition: 0.3s;}
+	#contact .center textarea{border:none;border-bottom:1px solid #5E5E5D;border-top:1px solid #5E5E5D;height: 200px;line-height: 50px; display: block;width: 100%;text-align: left;transition: 0.3s;background: transparent;}
+	#contact .center a{margin-top: 20px;display: inline-block;transition: 0.3s;color: #666}
+	#contact .center a:hover{color: #fff;}
+	#contact .center input:focus,#contact .center textarea:focus{background: rgba(255,255,255,0.1);}
+</style>
+<body>
+<div id="bg">
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</div>
+
+<div id="content">
+	<header id="header">
+
+		<div class="container">
+			<div class="center">
+				<div>
+					<h1 class="top bottom">Laurent Perez del Mar</h1>
+					<h2 class="top bottom">Compositeur</h2>
+				</div>
+				<p>
+					<ul>
+						<li><a href="javascript:;">News</a><span></span></li>
+						<li><a href="javascript:;">Biographie</a><span></span></li>
+						<li><a href="javascript:;">Filmographie</a><span></span></li>
+						<li><a href="javascript:;">Presse</a><span></span></li>
+						<li><a href="javascript:;">Autres projets</a><span></span></li>
+						<li><a href="javascript:;">Contact</a><span></span></li>
+						<li>1</li>
+						<li>2</li>
+					</ul>
+				</p>
+			</div>
+		</div>
+	</header>
+	<section id="news">
+		<div class="center">
+			<h1>NEWS</h1>
+			<ul>
+				<li class="top">
+					<div class="left">
+						<h2>Laurent devient membre de l'Académie des Oscars</h2>
+						<p class="dis">
+							Laurent est nommé pour la meilleure musique aux Annie Awards 2016. (Le 4 février 2017 à Los Angeles)
+						</p>
+					</div>
+					<div class="time">
+						08-06-2017
+					</div>
+					<div class="img">
+						<img src="images/oscar2015.jpg">
+					</div>
+				</li>
+				<li class="top">
+					<div class="left">
+						<h2>IFMCA awards</h2>
+						<p class="dis">
+							Laurent gagne le prix de la meilleure musique pour un film d'animation 2017 de la prestigieuse International Film Music Critics Association
+						</p>
+					</div>
+					<div class="time">
+						08-12-2016
+					</div>
+					<div class="img">
+						<img src="images/IFMCA.jpg">
+					</div>
+				</li>
+				<li class="top">
+					<div class="left">
+						<h2>La Tortue Rouge - Nomination aux Annie Awards (2016)</h2>
+						<p class="dis">
+							Laurent est nommé pour la meilleure musique aux Annie Awards 2016. (Le 4 février 2017 à Los Angeles)
+						</p>
+					</div>
+					<div class="time">
+						08-06-2017
+					</div>
+					<div class="img">
+						<img src="images/458412bfc7e805.jpg">
+					</div>
+				</li>
+				<li class="top">
+					<div class="left">
+						<h2>La Tortue Rouge - Nomination aux Prix Lumières (2016)</h2>
+						<p class="dis">
+							Laurent est nommé pour la meilleure musique aux Prix Lumières 2016. (30 janvier 2016 à Paris)
+						</p>
+					</div>
+					<div class="time">
+						30-11-2016
+					</div>
+					<div class="img">
+						<img src="images/Lumieres2.jpg">
+					</div>
+				</li>
+				<li class="top">
+					<div class="left">
+						<h2>La Tortue Rouge - Prix de la meilleure musique de film (2016)</h2>
+						<p class="dis">
+							Laurent remporte le prix de la meilleure musique de film au festival de la musique de film de la Baule (2016)
+						</p>
+					</div>
+					<div class="time">
+						12-11-2016
+					</div>
+					<div class="img">
+						<img src="images/IMG_57295829e59e86c62.JPG">
+					</div>
+				</li>
+				<li class="top">
+					<div class="left">
+						<h2>Carole Matthieu (2016)</h2>
+						<p class="dis">
+							Carole Matthieu, le nouveau film de Louis Julien Petit avec Isabelle Adjani bouleverse le festival du film francophone d'Angoulême.
+						</p>
+					</div>
+					<div class="time">
+						30-11-2016
+					</div>
+					<div class="img">
+						<img src="images/Isabelle-Adjani.jpg">
+					</div>
+				</li>
+			</ul>
+		</div>
+	</section>
+	<section id="biographie"> 
+		<div class="center">
+			<h1>Biographie</h1>
+			<div class="left">
+				<p>
+					Passionné de cinéma et après un cursus solide de piano classique et d’écriture musicale au conservatoire, Laurent Perez Del Mar écrit ses premières partitions pour des courts-métrages, des publicités et des émissions de TV puis des long-métrages pour le cinéma. Il mène en parallèle ses études de médecine qu’il conclut par un Doctorat en 2004.
+				</p>
+				<p>
+					Sa partition pour « Zarafa » (nommé pour le César 2013 du meilleur film d'animation) de Rémi Bezançon et Jean-Christophe Lie marque un tournant dans sa carrière. Le succès populaire du film permet à la partition de rencontrer un large public, et elle est utilisée notamment pour la cérémonie de clôture du 65ème Festival de Cannes.
+				</p>
+				<p>
+					II écrit ensuite entre autres la musique de « Loulou, l'incroyable secret » de Eric Omond et Grégoire Solotareff, qui remporte le César 2014 du meilleur long-métrage d'animation.
+				</p>
+				<p>
+					Jamel Debbouze fait ensuite appel à lui pour écrire la musique de son film d’animation « Pourquoi J’ai (pas) Mangé Mon Père », qui totalise plus de 2,5 millions d'entrées en France.
+				</p>
+				<p>
+					Il écrit également la musique originale de "Antigang", polar musclé de Benjamin Rocher avec Jean Reno, "Carole Matthieu" de Louis Julien Petit avec Isabelle Adjani, "Maintenant ou jamais" de Serge Frydman avec Leïla Bekthi...
+				</p>
+				<p>
+					En 2016, le long-métrage d'animation "La tortue rouge", de Michael Dudok De Wit (Oscarisé pour "Father and Daughter"), remporte un grand nombre de prix à travers le monde dont le prix spécial Un certain regard au 69ème Festival de Cannes; Il sera par la suite nommé aux Oscars et aux César 2017; produit par les studios Ghibli, Wild Bunch, Why Not et Prima Linea.
+				</p>
+				<p>
+					Laurent Perez del Mar remporte le prix de la meilleure musique de film de l'International Film Music Critics Association, ainsi qu'au festival musique et cinéma de La Baule, de la Chambre Syndicale des Editeurs de Musique, des movie UK awards et des Gold Spirit en Espagne où il remporte également le prix de compositeur révélation de l'année. Il est également nommé pour la meilleure musique aux prix Lumières, aux Annie Awards à Los Angeles (Oscars des films d'animation)...
+				</p>
+				<p>
+					En 2017, il a déjà écrit les musiques pour "Mon garçon", de Christian Carion avec Guillaume Canet et Mélanie Laurent, de "Tout là-haut", de Serge Hazanavicius avec Kev Adams et Vincent Elbaz et de "I Kill Giants", de Anders Walter avec Zoé Saldana.
+				</p>
+				<p>
+					Début 2014, Laurent PEREZ DEL MAR devient membre de l'Académie des César.
+				</p>
+				<p>
+					En 2017, il devient membre de l'Académie des Oscars.
+				</p>
+			</div>
+			<div class="right">
+				<p>
+					La musique de la tortue rouge nommée pour les Prix Lumières 2016
+				</p>
+				<p>
+					La musique de la tortue rouge nommée pour les Annie Awards 2016
+				</p>
+				<p>
+					La musique de la tortue rouge élue meilleure musique de film au Festival de la Baule 2016
+				</p>
+				<p>
+					Césars 2014: "Loulou l'incroyable secret" remporte le César 2014 du meilleur film d'animation
+				</p>
+				<p>
+					Césars 2013: Zarafa nommé dans la catégorie meilleur film d'animation
+				</p>
+				<p>
+					Festival de Cannes 2016: La Tortue Rouge en sélection officielle remporte le prix spécial Un certain regard
+				</p>
+				<p>
+					La musique de Zarafa choisie pour la cérémonie de cloture du 65ème Festival de Cannes (2012)
+				</p>
+			</div>
+		</div>
+	</section>
+	<section id="filmographie">
+		<div class="center">
+			<h1>Filmographie</h1>
+			<ul>
+				<li class="top">
+					<p class="title">
+						I Kill Giants (Post-production)<span>+</span>
+					</p>
+					<div class="dis">
+						<div class="photo">
+							<img src="images/IKG5969d06968431.jpg"/>
+						</div>
+						<div class="right">
+							<h2>Director</h2>
+							<p>Anders Walter</p>
+							<h2>Production</h2>
+							<p>Michael Barnathan, Chris Columbus, Kyle Franke, Kim Magnusson, Adrian Politowski</p>
+							<h2>Cast</h2>
+							<p>Zoe Saldana, Imogen Poots, Madison Wolfe</p>
+							<a href="javascript:;">IMDB link</a>
+						</div>
+					</div>
+				</li>
+				<li class="top">
+					<p class="title">
+						Mon garçon (Post-production)<span>+</span>
+					</p>
+					<div class="dis">
+						<div class="photo">
+							<img src="images/Affiche-Mongaron59a16e93b2be1.jpg"/>
+						</div>
+						<div class="right">
+							<h2>Réalisateur</h2>
+							<p>Christian Carion</p>
+							<h2>Production</h2>
+							<p>Nord Ouest</p>
+							<h2>Cast</h2>
+							<p>Guillaume Canet, Mélanie Laurent</p>
+							<a href="javascript:;">IMDB link</a>
+						</div>
+					</div>
+				</li>
+				<li class="top">
+					<p class="title">
+						Mon garçon (Post-production)<span>+</span>
+					</p>
+					<div class="dis">
+						<div class="photo">
+							<img src="images/Hornbein-2-copie-1.jpg"/>
+						</div>
+						<div class="right">
+							<h2>Réalisateur</h2>
+							<p>Serge Hazanavicius</p>
+							<h2>Production</h2>
+							<p>Rouge International, My Family</p>
+							<h2>Cast</h2>
+							<p>Kev Adams, Vincent Elbaz, Bérénice Béjo</p>
+							<a href="javascript:;">IMDB link</a>
+						</div>
+					</div>
+				</li>
+				<li class="top">
+					<p class="title">
+						Mon garçon (Post-production)<span>+</span>
+					</p>
+					<div class="dis">
+						<div class="photo">
+							<img src="images/TRTAfficheFrance.jpg"/>
+						</div>
+						<div class="right">
+							<h2>Réalisateur</h2>
+							<p>Michael Dudok De Wit</p>
+							<h2>Production</h2>
+							<p>Prix Spécial Un Certain Regard au Festival de Cannes 2016.Nommé pour l'Oscar et le César du meilleur film d'animation 2017</p>
+							<h2>Cast</h2>
+							<p>Why Not, Ghibli, Wild Bunch, Prima Linea Productions</p>
+							<a href="javascript:;">IMDB link</a>
+						</div>
+					</div>
+				</li>
+				<li class="top">
+					<p class="title">
+						Mon garçon (Post-production)<span>+</span>
+					</p>
+					<div class="dis">
+						<div class="photo">
+							<img src="images/145898.jpg-c_215_290_x-f_jpg-q_x-xxyxx.jpg"/>
+						</div>
+						<div class="right">
+							<h2>Réalisateur</h2>
+							<p>Lisa Azuelos</p>
+							<h2>Production</h2>
+							<p>Sveva Alviti, Riccardo Scamarcio, Jean-Paul Rouve</p>
+							<h2>Cast</h2>
+							<p>Bethsabée, Pathé</p>
+							<a href="javascript:;">IMDB link</a>
+						</div>
+					</div>
+				</li>
+				<li class="top">
+					<p class="title">
+						Mon garçon (Post-production)<span>+</span>
+					</p>
+					<div class="dis">
+						<div class="photo">
+							<img src="images/Carole-Matthieu.jpg"/>
+						</div>
+						<div class="right">
+							<h2>Réalisateur</h2>
+							<p>Lisa Azuelos</p>
+							<h2>Production</h2>
+							<p>Sveva Alviti, Riccardo Scamarcio, Jean-Paul Rouve</p>
+							<h2>Cast</h2>
+							<p>Bethsabée, Pathé</p>
+							<a href="javascript:;">IMDB link</a>
+						</div>
+					</div>
+				</li>
+				<li class="top">
+					<p class="title">
+						Tout pour être heureux (2016) <span>+</span>
+					</p>
+					<div class="dis">
+						<div class="photo">
+							<img src="images/toutpouretreheureux-affiche.jpg"/>
+						</div>
+						<div class="right">
+							<h2>Réalisateur</h2>
+							<p>Lisa Azuelos</p>
+							<h2>Production</h2>
+							<p>Sveva Alviti, Riccardo Scamarcio, Jean-Paul Rouve</p>
+							<h2>Cast</h2>
+							<p>Bethsabée, Pathé</p>
+							<a href="javascript:;">IMDB link</a>
+						</div>
+					</div>
+				</li>
+				<li class="top">
+					<p class="title">
+						Antigang (2015)  <span>+</span>
+					</p>
+					<div class="dis">
+						<div class="photo">
+							<img src="images/AntigangAffiche.jpg"/>
+						</div>
+						<div class="right">
+							<h2>Réalisateur</h2>
+							<p>Lisa Azuelos</p>
+							<h2>Production</h2>
+							<p>Sveva Alviti, Riccardo Scamarcio, Jean-Paul Rouve</p>
+							<h2>Cast</h2>
+							<p>Bethsabée, Pathé</p>
+							<a href="javascript:;">IMDB link</a>
+						</div>
+					</div>
+				</li>
+				<li class="top">
+					<p class="title">
+						Pourquoi j'ai (pas) mangé mon père (2015)   <span>+</span>
+					</p>
+					<div class="dis">
+						<div class="photo">
+							<img src="images/PJPMMP_Affiche550548a254fc0.jpg"/>
+						</div>
+						<div class="right">
+							<h2>Réalisateur</h2>
+							<p>Lisa Azuelos</p>
+							<h2>Production</h2>
+							<p>Sveva Alviti, Riccardo Scamarcio, Jean-Paul Rouve</p>
+							<h2>Cast</h2>
+							<p>Bethsabée, Pathé</p>
+							<a href="javascript:;">IMDB link</a>
+						</div>
+					</div>
+				</li>
+				<li class="top">
+					<p class="title">
+						Maintenant ou jamais (2014)   <span>+</span>
+					</p>
+					<div class="dis">
+						<div class="photo">
+							<img src="images/Maintenant-ou-jamais_Affiche53ba4822179c3.jpg"/>
+						</div>
+						<div class="right">
+							<h2>Réalisateur</h2>
+							<p>Lisa Azuelos</p>
+							<h2>Production</h2>
+							<p>Sveva Alviti, Riccardo Scamarcio, Jean-Paul Rouve</p>
+							<h2>Cast</h2>
+							<p>Bethsabée, Pathé</p>
+							<a href="javascript:;">IMDB link</a>
+						</div>
+					</div>
+				</li>
+				<li class="top">
+					<p class="title">
+						Loulou, l'incroyable secret (2013)    <span>+</span>
+					</p>
+					<div class="dis">
+						<div class="photo">
+							<img src="images/Loulou5229f40522447.jpg"/>
+						</div>
+						<div class="right">
+							<h2>Réalisateur</h2>
+							<p>Lisa Azuelos</p>
+							<h2>Production</h2>
+							<p>Sveva Alviti, Riccardo Scamarcio, Jean-Paul Rouve</p>
+							<h2>Cast</h2>
+							<p>Bethsabée, Pathé</p>
+							<a href="javascript:;">IMDB link</a>
+						</div>
+					</div>
+				</li>
+				<li class="top">
+					<p class="title">
+						Zarafa (2012)     <span>+</span>
+					</p>
+					<div class="dis">
+						<div class="photo">
+							<img src="images/zarafa_affiche.jpg"/>
+						</div>
+						<div class="right">
+							<h2>Réalisateur</h2>
+							<p>Lisa Azuelos</p>
+							<h2>Production</h2>
+							<p>Sveva Alviti, Riccardo Scamarcio, Jean-Paul Rouve</p>
+							<h2>Cast</h2>
+							<p>Bethsabée, Pathé</p>
+							<a href="javascript:;">IMDB link</a>
+						</div>
+					</div>
+				</li>
+				<li class="top">
+					<p class="title">
+						Désordres (2012)     <span>+</span>
+					</p>
+					<div class="dis">
+						<div class="photo">
+							<img src="images/desordre_affiche.jpg"/>
+						</div>
+						<div class="right">
+							<h2>Réalisateur</h2>
+							<p>Lisa Azuelos</p>
+							<h2>Production</h2>
+							<p>Sveva Alviti, Riccardo Scamarcio, Jean-Paul Rouve</p>
+							<h2>Cast</h2>
+							<p>Bethsabée, Pathé</p>
+							<a href="javascript:;">IMDB link</a>
+						</div>
+					</div>
+				</li>
+				<li class="top">
+					<p class="title">
+						Un heureux évenement (2011)   <span>+</span>
+					</p>
+					<div class="dis">
+						<div class="photo">
+							<img src="images/Unheureuxevenement.JPG"/>
+						</div>
+						<div class="right">
+							<h2>Réalisateur</h2>
+							<p>Lisa Azuelos</p>
+							<h2>Production</h2>
+							<p>Sveva Alviti, Riccardo Scamarcio, Jean-Paul Rouve</p>
+							<h2>Cast</h2>
+							<p>Bethsabée, Pathé</p>
+							<a href="javascript:;">IMDB link</a>
+						</div>
+					</div>
+				</li>
+				<li class="top">
+					<p class="title">
+						Peur(s) du noir (2008)    <span>+</span>
+					</p>
+					<div class="dis">
+						<div class="photo">
+							<img src="images/fearsofthedark_affiche.jpg"/>
+						</div>
+						<div class="right">
+							<h2>Réalisateur</h2>
+							<p>Lisa Azuelos</p>
+							<h2>Production</h2>
+							<p>Sveva Alviti, Riccardo Scamarcio, Jean-Paul Rouve</p>
+							<h2>Cast</h2>
+							<p>Bethsabée, Pathé</p>
+							<a href="javascript:;">IMDB link</a>
+						</div>
+					</div>
+				</li>
+				<li class="top">
+					<p class="title">
+						Sortie de route (2010)<span>+</span>
+					</p>
+					<div class="dis">
+						<div class="photo">
+							<img src="images/sortiederoute.jpg"/>
+						</div>
+						<div class="right">
+							<h2>Réalisateur</h2>
+							<p>Lisa Azuelos</p>
+							<h2>Production</h2>
+							<p>Sveva Alviti, Riccardo Scamarcio, Jean-Paul Rouve</p>
+							<h2>Cast</h2>
+							<p>Bethsabée, Pathé</p>
+							<a href="javascript:;">IMDB link</a>
+						</div>
+					</div>
+				</li>
+				<li class="top">
+					<p class="title">
+						Lune de miel (2008) <span>+</span>
+					</p>
+					<div class="dis">
+						<div class="photo">
+							<img src="images/LuneDeMiel_affiche.jpg"/>
+						</div>
+						<div class="right">
+							<h2>Réalisateur</h2>
+							<p>Lisa Azuelos</p>
+							<h2>Production</h2>
+							<p>Sveva Alviti, Riccardo Scamarcio, Jean-Paul Rouve</p>
+							<h2>Cast</h2>
+							<p>Bethsabée, Pathé</p>
+							<a href="javascript:;">IMDB link</a>
+						</div>
+					</div>
+				</li>
+				<li class="top">
+					<p class="title">
+						Lune de miel (2008) <span>+</span>
+					</p>
+					<div class="dis">
+						<div class="photo">
+							<img src="images/LuneDeMiel_affiche.jpg"/>
+						</div>
+						<div class="right">
+							<h2>Réalisateur</h2>
+							<p>Lisa Azuelos</p>
+							<h2>Production</h2>
+							<p>Sveva Alviti, Riccardo Scamarcio, Jean-Paul Rouve</p>
+							<h2>Cast</h2>
+							<p>Bethsabée, Pathé</p>
+							<a href="javascript:;">IMDB link</a>
+						</div>
+					</div>
+				</li>
+				
+			</ul>
+		</div>
+	</section>
+	<section id="presse">
+		<div class="center">
+			<h1>presse</h1>
+			<p class="top">La Tortue Rouge (2016) <span>Télécharger au format jpg</span></p>
+			<p class="top">Variety <span> Télécharger au format JPG</span></p>
+			<p class="top">Ecran Total <span> Télécharger au format JPG</span></p>
+			<p class="top">Little White Lies <span> Voir le lien</span></p>
+			<p class="top bottom">Interview Pathé Films<span> Télécharger au format pdf</span></p>
+		</div>
+	</section>
+	<section id="projets">
+		<div class="center">
+			<h1>Autres projets</h1>
+			<ul>
+				<li class="top">
+					<h2>Marseille (Cannes Festival, 2012) <span>+</span></h2>
+					<div class="dis"></div>
+				</li>
+				<li class="top">
+					<h2>DnB ,The treasure (cast. George Clooney) <span>+</span></h2>
+					<div class="dis"></div>
+				</li>
+				<li class="top bottom">
+					<h2>Lotto <span>+</span></h2>
+					<div class="dis"></div>
+				</li>
+			</ul>
+		</div>
+	</section>
+	<section id="contact">
+		<div class="center">
+			<h1 >Contact</h1>
+			<h2>laurentperezdelmar@gmail.com</h2>
+			<input type="text" name="" placeholder ="YOUR EMAIL"  />
+			<textarea placeholder="YOUR MESSAGE">
+				
+			</textarea>
+			<a href="javascript:;">SEND</a>
+		</div>
+	</section>
+</div>
+</body>
+<script type="text/javascript">
+
+
+
+
+		var bg0 = document.getElementById('bg');
+		var bgUl = bg0.getElementsByTagName('ul')[0];
+		var windowHeight = document.body.clientHeight;
+
+        var a_list = document.getElementById('header').getElementsByTagName('a');
+        var content_list = [document.getElementById('news'),
+        					document.getElementById('biographie'),
+        					document.getElementById('filmographie'),
+        					document.getElementById('presse'),
+        					document.getElementById('projets'),
+        					document.getElementById('contact')
+        					];
+var currBgIndex = 0;
+        for(var i = 0;i< a_list.length;i++)
+        {
+        	
+        	a_list[i].index = i;
+        	a_list[i].onclick = function(){
+        		console.log(this.index)
+        		currBgIndex = this.index;
+
+        		//bgUl.style.cssText = "top:"+(-this.index*windowHeight*1.5)+"px";
+        		animate(bgUl,'top',-this.index*windowHeight*1.5);
+        		
+        		document.documentElement.scrollTop = content_list[this.index].offsetTop-windowHeight/2;
+        		document.body.scrollTop = content_list[this.index].offsetTop-windowHeight/2;
+        	}
+        }
+
+        var timer = null;
+        var speed;
+        function animate(obj,key,value){
+        	clearInterval(obj.timer);
+        	
+        	var header = document.getElementById('header');
+        	var underLine_list = header.getElementsByTagName('ul')[0].getElementsByTagName('span');
+        	for(var i= 0;i<underLine_list.length;i++)
+        	{
+        		underLine_list[i].style.cssText = "width:0;"
+        	}
+        	underLine_list[currBgIndex].style.cssText = "width:100%;"
+
+
+        	obj.timer = setInterval(function(){
+
+        		var iCur=parseInt(getStyle(obj,key));
+        		var iSpeed=(value-iCur)/9;
+				iSpeed=iSpeed>0 ?Math.ceil(iSpeed): Math.floor(iSpeed);
+				
+				if(parseInt(value)==iCur){
+					obj.style[key] = value+"px";
+					clearInterval(obj.timer);
+				}else{
+					obj.style[key] = (parseInt(getStyle(obj,key))+iSpeed) +"px";
+				}
+        		//console.log("iSpeed="+iSpeed+"----iCur="+iCur+"----value="+value)
+
+        		
+        	},30)
+        }
+		function getStyle(obj,attr){//获取css内嵌样式
+			if(obj.currentStyle){//ie
+				return obj.currentStyle[attr];
+			}else{
+				return getComputedStyle(obj,false)[attr];
+			}
+		}
+
+
+
+		var header = document.getElementById('header');
+		var nav = header.getElementsByTagName('ul')[0];
+		var header_top = nav.getBoundingClientRect().top;
+		var scrollTop ;
+		
+		window.onscroll = function(){
+			scrollTop = document.documentElement.scrollTop||document.body.scrollTop;//获取滚动条位置
+			//console.log(scrollTop+"-----"+header_top);
+			if(scrollTop >= header_top)
+			{
+				nav.style.cssText = "position:fixed;top:0;left:0;width:100%;background:rgba(0,0,0,0.8);height:60px;z-index:99999;";
+			}
+			else{
+				nav.style.cssText ='';
+			}
+
+			if(content_list[currBgIndex].offsetTop-windowHeight/2<scrollTop){
+				
+				
+					animate(bgUl,'top',-currBgIndex*windowHeight*1.5);
+					
+				
+
+				console.log('currBgIndex++'+currBgIndex)
+				
+					currBgIndex++;
+					if (currBgIndex>5) 
+					currBgIndex = 5;
+				
+			}
+			else if(content_list[currBgIndex-1].offsetTop-windowHeight/2>scrollTop ){
+				currBgIndex--;
+				console.log('currBgIndex--'+currBgIndex)
+				
+				animate(bgUl,'top',-currBgIndex*windowHeight*1.5);
+				
+			}
+
+
+		}
+</script>
+</html>
